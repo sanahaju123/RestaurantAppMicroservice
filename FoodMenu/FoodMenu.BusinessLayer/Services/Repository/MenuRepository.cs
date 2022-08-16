@@ -49,7 +49,7 @@ namespace FoodMenu.BusinessLayer.Services.Repository
                 await _dbContext.SaveChangesAsync();
                 return menu;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return null;
             }

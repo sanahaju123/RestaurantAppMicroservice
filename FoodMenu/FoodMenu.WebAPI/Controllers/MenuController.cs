@@ -23,7 +23,6 @@ namespace FoodMenu.WebAPI.Controllers
 
         // GET: api/menus
         [HttpGet]
-        [Route("menus/getall")]
         public async Task<IActionResult> GetMenu()
         {
             var result = await _menuService.FindAllAsync();
@@ -32,7 +31,6 @@ namespace FoodMenu.WebAPI.Controllers
 
         // POST: api/menus
         [HttpPost]
-        [Route("menus/add")]
         public async Task<IActionResult> PostMenu([FromBody] Menu menu)
         {
             var result = await _menuService.InsertAsync(menu);
@@ -41,7 +39,6 @@ namespace FoodMenu.WebAPI.Controllers
 
         // PUT: api/menus 
         [HttpPut]
-        [Route("menus/update")]
         public async Task<IActionResult> PutMenu([FromBody] Menu menu)
         {
             var result = await _menuService.UpdateAsync(menu);
@@ -50,7 +47,7 @@ namespace FoodMenu.WebAPI.Controllers
 
         // PUT: api/menus 
         [HttpGet]
-        [Route("menus/getById")]
+        [Route("{menuId}")]
         public async Task<IActionResult> GetMenuById(int menuId)
         {
             var result = await _menuService.FindOneAsync(menuId);

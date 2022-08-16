@@ -22,7 +22,6 @@ namespace Order.WebAPI.Controllers
 
         // GET: api/orders
         [HttpGet]
-        [Route("orders/getAll")]
         public async Task<IActionResult> Get()
         {
             var result = await _orderService.FindAllAsync();
@@ -31,7 +30,6 @@ namespace Order.WebAPI.Controllers
 
         // POST: api/orders
         [HttpPost]
-        [Route("orders/Add")]
         public async Task<IActionResult> Post([FromBody] Orders order)
         {
             var result = await _orderService.InsertAsync(order);
@@ -40,7 +38,6 @@ namespace Order.WebAPI.Controllers
 
         // PUT: api/orders
         [HttpPut]
-        [Route("orders/update")]
         public async Task<IActionResult> Put([FromBody] Orders order)
         {
             var result = await _orderService.UpdateAsync(order);
@@ -48,10 +45,10 @@ namespace Order.WebAPI.Controllers
         }
         // PUT: api/orders
         [HttpGet]
-        [Route("orders/getById")]
-        public async Task<IActionResult> getById(int orderID)
+        [Route("{orderId}")]
+        public async Task<IActionResult> getById(int orderId)
         {
-            var result = await _orderService.FindOneAsync(orderID);
+            var result = await _orderService.FindOneAsync(orderId);
             return Ok(result);
         }
     }

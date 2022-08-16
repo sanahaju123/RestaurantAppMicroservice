@@ -46,7 +46,7 @@ namespace Customer.WebAPI.Controllers
 
         // PUT: api/customers 
         [HttpGet]
-        [Route("{id}")]
+        [Route("{customerId}")]
         public async Task<IActionResult> GetCustomerById(int customerId)
         {
             var result = await _customerService.FindOneAsync(customerId);
